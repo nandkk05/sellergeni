@@ -12,7 +12,8 @@ const ListItem = styled("li")(({ theme }) => ({
 
 export default function Search() {
   const [selected, setSelected] = useState([]);
-  const field = [];
+
+  // handling delete here
 
   const handleDelete = (chipToDelete) => () => {
     setSelected((chips) =>
@@ -20,8 +21,15 @@ export default function Search() {
     );
   };
 
+  const items = [
+    { key: 0, label: "Chakra" },
+    { key: 1, label: "CSS" },
+    { key: 2, label: "Javascript" },
+    { key: 3, label: "React" },
+  ];
+
   return (
-    <Stack spacing={3} sx={{ width: 500 }}>
+    <Stack spacing={2} sx={{ width: 384 }}>
       {selected && (
         <Paper
           sx={{
@@ -62,16 +70,9 @@ export default function Search() {
         onChange={(event, newValue) => {
           setSelected(selected.concat(newValue));
         }}
-        value={field}
+        value={[]}
         renderInput={(params) => <TextField {...params} label="Select" />}
       />
     </Stack>
   );
 }
-
-const items = [
-  { key: 0, label: "Chakra" },
-  { key: 1, label: "CSS" },
-  { key: 2, label: "Javascript" },
-  { key: 3, label: "React" },
-];
