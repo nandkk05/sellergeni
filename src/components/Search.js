@@ -63,9 +63,7 @@ export default function Search() {
           setSelected(selected.concat(newValue));
         }}
         value={field}
-        renderInput={(params) => (
-          <TextField {...params} label="Select Movies" />
-        )}
+        renderInput={(params) => <TextField {...params} label="Select" />}
       />
     </Stack>
   );
